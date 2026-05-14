@@ -1,0 +1,15 @@
+# Raster data (large files)
+data/*.tif
+data/*.zip
+data/*.shp
+data/*.dbf
+data/*.shx
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
