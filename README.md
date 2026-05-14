@@ -66,3 +66,15 @@ All outputs are saved automatically to `output/`.
 ## Main Findings
 
 The analysis reveals a clear spatial pattern of digital inequality in Cusco: urban centers display moderate-to-high nighttime light intensity but often insufficient mobile connectivity (positive IBD values), indicating an active digital divide even in relatively urbanized areas. Rural highlands exhibit the highest digital exclusion risk (EDT near 1.0), with populations that lack both electricity infrastructure and internet access. Welch's t-test confirms a statistically significant difference in nighttime light intensity between Urban Connected (Class 1) and Critical Divide (Class 4) zones.
+
+## Pipeline Details
+
+### Normalization
+Both rasters are normalized using the [2nd–98th percentile] method. Negative values and NoData sentinels are replaced with 0 before clipping, ensuring robustness to outliers common in satellite imagery.
+
+### Indices
+- **IBD (Digital Divide Index):** `VNL_norm − Connectivity_norm` ∈ [−1, 1]. Red zones indicate urbanized areas with poor connectivity.
+- **EDT (Total Digital Exclusion):** `(1 − VNL_norm) × (1 − Connectivity_norm)` ∈ [0, 1]. High values mark zones excluded from both electricity and internet access.
+
+### Classification
+The 2×2 territorial classification uses VNL ≥ 0.15 and Connectivity ≥ 0.15 as thresholds, producing four classes that expose the spatial distribution of digital inequality.
