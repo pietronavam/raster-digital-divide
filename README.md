@@ -30,7 +30,17 @@ raster-digital-divide/
 
 ## Dependencies
 
+**Python ≥ 3.10** is required.
+
+It is recommended to use a virtual environment:
+
 ```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS / Linux
+source .venv/bin/activate
+
 pip install -r requirements.txt
 ```
 
